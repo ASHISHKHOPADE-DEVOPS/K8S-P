@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+    - key: team
+      operator: In
+      values:
+      - dev
+      - prod
+      - test
+  template:
+    metadata:
+      name: nginx
+      labels:
+        team: dev
+    spec:
+      containers:
+      - name: nginx 
+        image: nginx
+        ports:
+        - containerPort: 80
