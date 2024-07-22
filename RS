@@ -6,20 +6,22 @@ spec:
   replicas: 3
   selector:
     matchExpressions:
-    - key: team
-      operator: In
-      values:
-      - dev
-      - prod
-      - test
+      - key: team
+        operator: In
+        values:
+          - prod
+          - test
+      - key: team
+        operator: NotIn
+        values:
+          - dev
   template:
     metadata:
-      name: nginx
       labels:
-        team: dev
+        team: test   # Corrected indentation and removed 'name' field
     spec:
       containers:
-      - name: nginx 
-        image: nginx
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
