@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ashish
+  labels:
+    team: ashish
+spec:
+  replicas: 5000
+  selector:
+    matchLabels:
+      team: ashish
+  template:
+    metadata:
+      labels:
+        team: ashish
+    spec:
+      containers:
+      - name: samur
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+                                
