@@ -1,0 +1,27 @@
+apiVersion: apps/v1      # how to check kubectl explain deployment 
+kind: Deployment         # kubectl explain rc --recursive | less
+metadata:
+ name: ashish-khopade     # deployment name 
+ labels:
+   team: dev             # delopment konta label cha replica set la connect karnar
+spec:
+ replicas: 3           # kiti replicas pahaja
+ selector:
+   matchLabels:
+     team: dev      # konta label h pahaja
+ template:
+   metadata:
+     labels:
+       team: dev  #konta pod label pahja
+   spec:
+     containers:        # containerv related all information like image ,port ,name 
+     - name: samruddhi
+       image: nginx:1.14.2
+       ports:
+       - containerPort: 80
+ strategy:                       # rolling update strategy 
+   type: RollingUpdate
+   rollingUpdate:
+     maxSurge: 1
+     maxUnavailable: 1
+                       
