@@ -1,0 +1,2 @@
+kubectl expose deployment web --type=ClusterIP --port=80 --target-port=80     #clusterIP
+kubectl -n kube-system get pods -o wide                   # check all component pod
