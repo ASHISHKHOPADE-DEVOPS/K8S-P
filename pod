@@ -6,3 +6,5 @@ spec:
   containers:
   - name: web
     image: nginx
+  nodeSelector:
+    ash:tb
