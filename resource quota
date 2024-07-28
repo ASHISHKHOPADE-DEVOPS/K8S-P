@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: my-resource-quota
+  namespace: ashish
+spec:
+  hard:
+    pods: "10"  # Maximum number of pods
+    requests.cpu: "10"  # Maximum CPU resources requested
+    requests.memory: "10Gi"  # Maximum memory requested
+    limits.cpu: "20"  # Maximum CPU limits
+    limits.memory: "20Gi"  # Maximum memory limits
